@@ -1,0 +1,489 @@
+
+<!DOCTYPE HTML><html style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=gb2312"><title>感恩的心，感谢有你</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"><meta content="telephone=no, address=no" name="format-detection"><meta name="renderer" content="webkit"><meta http-equiv="”X-UA-Compatible”" content="”IE=edge”"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="full-screen" content="true"><meta name="screen-orientation" content="portrait"><meta name="x5-fullscreen" content="true"><meta name="360-fullscreen" content="true"><link rel="stylesheet" href="http://css.wtoken.com/lqc/newmusic/style/editor.css?v=09081141"><link rel="stylesheet" href="http://css.wtoken.com/lqc/newmusic/style/text_animate.css?v=09081141"><script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><script type="text/javascript">window.token='rnrxik1448871227';
+
+</script><style>      @-webkit-keyframes fadeOut {
+        0% {opacity: 1;}
+        100% {opacity: 0;}
+      }
+
+        @keyframes fadeOut {
+            0% {opacity: 1;}
+            100% {opacity: 0;}
+        }
+        .share-tip {
+            pointer-events:none;
+            display: none;
+            position: fixed;
+            color: #fff;
+            font-size: 13px;
+            padding: 7px 10px;
+            border-radius: 3px;
+            right: 10px;
+            top: 15px;
+            z-index: 9999;
+            background: rgb(68,69,71);
+        }
+
+        .share-tip.tip-out {
+            display: inline-block;
+            -webkit-animation: fadeOut 3s forwards;
+        }
+
+        .share-tip-angle {
+            position: absolute;
+            top: -10px;
+            border: 5px solid transparent;
+            border-bottom: 5px rgb(68,69,71) solid;
+            right: 20px;
+        }
+
+        .share-tip.tip-in {
+            display: inline-block;
+            -webkit-animation: shakeIn 3s forwards;
+        }
+
+        @-webkit-keyframes shakeIn {
+            0%{
+                opacity: 0;
+            }
+            75%{
+                opacity: 1;
+                -webkit-transform: scale3d(1, 1, 1);
+            }
+            82%{
+                -webkit-transform: scale3d(1.1, 0.8, 1);
+            }
+            84%{
+                -webkit-transform: scale3d(1.05, .95, 1);
+            }
+            87%{
+                -webkit-transform: scale3d(1, 1, 1);
+            }
+            91%{
+                -webkit-transform: scale3d(1.1, 0.8, 1);
+            }
+            100%{
+                -webkit-transform: scale3d(1, 1, 1);
+            }
+        }
+    </style><script src="http://css.wtoken.com/lqc/newmusic/style/zepto.min.js?v=12101011"></script></head><body><script type="text/javascript">    var touchStartMusic = function(){
+        music_check_timeout = undefined;
+        function check_Music(){
+            // 阻塞执行 500 ms 执行一次
+            if(musicView != undefined && musicView.audioPlayer != undefined && musicView.audioPlayer.inited == true){
+                if(music_check_timeout != undefined){
+                    clearTimeout(music_check_timeout);
+                }
+                musicView.audioPlayer.isPlay = false;
+                musicView.audioPlayer._play();
+            }else{
+                music_check_timeout = setTimeout(check_Music, 500);
+            }
+        }
+        check_Music();
+        document.removeEventListener('touchstart',touchStartMusic);
+    }
+    document.addEventListener('touchstart',touchStartMusic);
+</script><div style="display:none;" class="share-tip"><span id='share-tip-text'>分享给好友</span><span class="share-tip-angle"></span></div><script>    function addEgret(){
+        var height = window.innerHeight;
+        var weight = window.innerWidth;
+        var per = height/weight;
+        var t ="";
+        if(per <=4/3){
+            t="showAll";
+        }else {
+            t="noBorder";
+        }
+        setCookie("scaleMode",t);
+    }
+    addEgret();
+
+
+    //写cookies 
+    function setCookie(name,value) 
+    { 
+        var Days = 30; 
+        var exp = new Date(); 
+        exp.setTime(exp.getTime() + Days*24*60*60*1000); 
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+    } 
+
+    //读取cookies 
+    function getCookie(name) 
+    { 
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+     
+        if(arr=document.cookie.match(reg))
+     
+            return unescape(arr[2]); 
+        else 
+            return null; 
+    } 
+
+    //删除cookies 
+    function delCookie(name) 
+    { 
+        var exp = new Date(); 
+        exp.setTime(exp.getTime() - 1); 
+        var cval=getCookie(name); 
+        if(cval!=null) 
+            document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
+    } 
+</script><!-- 2.5 --><div style="margin: auto;width: 100%;height: 100%;" class="egret-player" id="egret-player"
+     data-entry-class="Main"
+     data-orientation="auto"
+     data-scale-mode ="noBorder"
+     data-resolution-mode="retina"
+     data-frame-rate="60"
+     data-content-width="640"
+     data-content-height="1008"
+     data-show-paint-rect="false"
+     data-multi-fingered="2"
+     data-show-fps="false" data-show-log="false"
+     data-log-filter="" data-show-fps-style="x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9"><div class='lyricBar'><ul></ul></div><div id='TextView'></div><input type="hidden" value="" id="per"/></div><div class="musicWrap"><a id="AudioBtn" href="javascript:;"></a></div><style>.loadingWrap{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0px;
+  background: url("tpl/static/music/bg.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.loadingFont{
+  background: url("http://i12.piimg.com/6aea2545915be240.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 130px;
+  height: 60px;
+  margin-left: -65px;
+}
+.loadingNum{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  font: 18px 微软雅黑;
+  text-align: center;
+  margin-left: -50px;
+  color: white;
+}
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: url("https://img.alicdn.com/imgextra/i1/1016194477/TB2wdRKoXXXXXXkXXXXXXXXXXXX_!!1016194477.png");
+  background-size: 100% 100%;
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  margin-top: -60%;
+  margin-left: -65px;
+}
+.waiquan{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -288px 0 0 -124px;
+  width: 185px;
+  height: 185px;
+  border-radius: 100%;
+  margin-top: -80%;
+  margin-left: -92px;
+}
+.xunzhuan {
+  width: 135px;
+  height: 135px;
+  position: absolute;
+  border-radius: 100%;
+  top: 50%; 
+  left: 50%;
+  opacity: 0.7;
+  box-shadow: rgba(255, 255, 255, 0.6) -10px -15px 13px -13px;
+  -webkit-animation: rotate 2s infinite linear;
+  margin-top: -60.7%;
+  margin-left: -68px;
+}
+.loaderConten{
+  position: absolute;
+  width: 135px;
+  height: 135px;
+  top: 30%;
+  left: 50%;
+  margin-left: -75px;
+  margin-top: -75px;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes share_rubberBand {
+      0%{}
+      75%{-webkit-transform:translateX(0%) scale3d(1, 1, 1) ;}
+      82%{-webkit-transform:translateX(0%) scale3d(1.1, 0.8, 1) ;}
+      84%{-webkit-transform:translateX(0%) scale3d(0.9, 1.2, 1) ;}
+      87%{-webkit-transform:translateX(0%) scale3d(1.05, 0.85, 1) ;}
+      91%{-webkit-transform:translateX(0%) scale3d(.95, 1.05, 1) ;}
+      94%{-webkit-transform:translateX(0%) scale3d(1.05, .95, 1) ;}
+      100%{-webkit-transform:translateX(0%) scale3d(1, 1, 1) ;}
+    }
+</style><style>.green.button {
+    background-color: #91bd09;
+}
+.green.button {
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 3s;
+}
+a.button {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+.button {
+    background: #222 url(http://www.html5tricks.com/demo/css3-shine-button/overlay-button.png) repeat-x 0 0;
+    display: inline-block;
+    padding: 5px 15px 6px;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    cursor: pointer;
+    overflow: visible;
+    width: auto;
+}
+@-webkit-keyframes share_rubberBand {
+      0%{}
+      75%{-webkit-transform:translateX(0%) scale3d(1, 1, 1) ;}
+      82%{-webkit-transform:translateX(0%) scale3d(1.1, 0.8, 1) ;}
+      84%{-webkit-transform:translateX(0%) scale3d(0.9, 1.2, 1) ;}
+      87%{-webkit-transform:translateX(0%) scale3d(1.05, 0.85, 1) ;}
+      91%{-webkit-transform:translateX(0%) scale3d(.95, 1.05, 1) ;}
+      94%{-webkit-transform:translateX(0%) scale3d(1.05, .95, 1) ;}
+      100%{-webkit-transform:translateX(0%) scale3d(1, 1, 1) ;}
+    }
+      @media screen and (min-width: 600px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+       .jb_infoContainer{
+        width: 300px;
+        height: 57.53%;
+        position: absolute;
+        top: 17.4%;
+        left: 50%;
+        margin-left: -150px;
+        background-color: white;
+        z-index: 9999;
+        display: none;
+      }
+    }
+
+</style><span class="freeEdit"><div class="text1"></div></span><div class="loadingWrap"><div class="loaderConten"><div class="loading"></div><div class="xunzhuan"></div><div class="waiquan"><img src="http://css.wtoken.com/lqc/newmusic/style/waiquan.png" width="100%"></div></div><div class="loadingNum"><p id='loadingText'>加载中</p><p id='loadingPro'>5%</p></div><div class="loadingFont"></div></div><div id="MusicView"><ul><div class='musicType'><div class='all'><span class='all'>全部</span><span class='sweet'>甜蜜</span><span class='quiet'>安静</span><span class='relax'>轻松</span><span class='lonely'>寂寞</span><span class='happy'>开心</span><div class="clrBox"></div></div></div><div id='MusicList' class='all'><li class="sweet"><div id="MusicItem123" class="musicItem lyric select"><div class="musicItemTitle"> 测试 </div><div class="musicItemAfter"><div class="musicStatus" data-info="http://ws.stream.qqmusic.qq.com/4739380.m4a?fromtag=46" data-lyric="http://css.wtoken.com/lqc/newmusic/Public/lyric/music_123.lrc"></div><div class="clrBox"></div></div><div class="clrBox"></div></div></li></div></ul><nav><a href="javascript:;" id="MusicCancel"></a><span></span><a href="javascript:;" id="MusicSelect"></a></nav></div><div style="display:none;" id="open_id">oiCnit_i0eaxDUnvECa9pqkFLrNE</div><script src="http://css.wtoken.com/lqc/newmusic/style/common.js?v=12101011"></script><script src="http://css.wtoken.com/lqc/newmusic/style/music.js?v=12101011"></script><script>    var staticUrl = 'http://css.wtoken.com/lqc/newmusic/';
+</script><script src="http://css.wtoken.com/lqc/newmusic/style/text_config.js?v=12101011"></script><script>    var mvCfg = {
+  cid : 'oWKJOuKq-GriutL1UvEkrti7Xo4A9957042814558364wqlcms1471957420',
+  pics : ["http://img2.wtoken.cn/20160823/599d6dc9002f95c8.jpg","http://img3.wtoken.cn/20160823/96041c27e9a06b44.jpg","http://img2.wtoken.cn/20160823/6314e37511971eb7.jpg","http://img1.wtoken.cn/20160823/1d02bf27359946aa.jpg","http://img8.wtoken.cn/20160823/35f1f176d28f5b87.jpg","http://img4.wtoken.cn/20160823/9ae675f0c70b63a3.jpg","http://img3.wtoken.cn/20160823/8f947d70c6de1442.jpg","http://img1.wtoken.cn/20160823/16e8c9cc61ffc119.jpg","http://img3.wtoken.cn/20160823/fc18bd474919042d.jpg","http://img3.wtoken.cn/20160823/6184603e5c16f53f.jpg","http://img4.wtoken.cn/20160823/16004688c3219b38.jpg","http://img4.wtoken.cn/20160823/8d8b30daf6097362.jpg","http://img8.wtoken.cn/20160823/ea22ee807cbbc1da.jpg","http://img8.wtoken.cn/20160823/eb33cf12680eb9f7.jpg","http://img4.wtoken.cn/20160823/4765332428a1a2f2.jpg","http://img2.wtoken.cn/20160823/23112d40e14ef560.jpg","http://img4.wtoken.cn/20160823/9c2132db3343dee9.jpg","http://img1.wtoken.cn/20160823/7ddb94f142966da6.jpg","http://img7.wtoken.cn/20160823/ef56a8a7dfbaa361.jpg","http://img7.wtoken.cn/20160823/1d3b65f776744526.jpg","http://img8.wtoken.cn/20160823/3e216a7397a8a5cf.jpg","http://img4.wtoken.cn/20160823/d2f9279ecc6944b8.jpg","http://img8.wtoken.cn/20160823/a6ba5b13093cf27f.jpg","http://img3.wtoken.cn/20160823/e8769ecb30fd9ad0.jpg","http://img8.wtoken.cn/20160823/3f95c397ba12ffab.jpg","http://img1.wtoken.cn/20160823/57bb505d86872a76.jpg","http://img1.wtoken.cn/20160823/991135221d248f47.jpg","http://img1.wtoken.cn/20160823/5f70e3ada1dd41c5.jpg","http://img2.wtoken.cn/20160823/97f376ea987d74fe.jpg","http://img7.wtoken.cn/20160823/9bb16ca905ce83dd.jpg","http://img3.wtoken.cn/20160823/fe8a3446b1f527f0.jpg","http://img3.wtoken.cn/20160823/fa14f410af6ff0a4.jpg","http://img3.wtoken.cn/20160823/025642e59db06126.jpg","http://img4.wtoken.cn/20160823/f049bbcb3c680bfe.jpg","http://img7.wtoken.cn/20160823/98f7216c1c488000.jpg","http://img7.wtoken.cn/20160823/116c36b1bf3477c7.jpg","http://img4.wtoken.cn/20160823/563219b67c0c3ef7.jpg","http://img3.wtoken.cn/20160823/6a5e9eb76145ea73.jpg","http://img3.wtoken.cn/20160823/26fc0770e019d12e.jpg","http://img7.wtoken.cn/20160823/d6f8d8d9db112348.jpg","http://img8.wtoken.cn/20160823/e6e98c9b60b1ed83.jpg","http://img4.wtoken.cn/20160823/41dc1624b0fade51.jpg","http://img8.wtoken.cn/20160823/ce83f19ca7a6168b.jpg","http://img7.wtoken.cn/20160823/6afad9726da1677e.jpg","http://img4.wtoken.cn/20160823/ff9c541071a907c0.jpg","http://img3.wtoken.cn/20160823/92ac0b57ba70dad2.jpg","http://img4.wtoken.cn/20160823/6e3351128db74b07.jpg","http://img1.wtoken.cn/20160823/f1ee9b95e3267291.jpg","http://img3.wtoken.cn/20160823/a303f183aa22f2ce.jpg","http://img3.wtoken.cn/20160823/a7035fe17fb2749b.jpg","http://img8.wtoken.cn/20160823/1d60b5bd0e97c203.jpg","http://img2.wtoken.cn/20160823/b6055bc84d3bb1da.jpg","http://img1.wtoken.cn/20160823/05b66a7774308972.jpg","http://img4.wtoken.cn/20160823/7103ad9a38fe722d.jpg","http://img3.wtoken.cn/20160823/4d6057553ca9a42e.jpg","http://img2.wtoken.cn/20160823/4550ecd23c30d67c.jpg","http://img1.wtoken.cn/20160823/a098040db9eda7ef.jpg","http://img1.wtoken.cn/20160823/b39eacec27366210.jpg","http://img2.wtoken.cn/20160823/9cb7ca1049344d72.jpg","http://img1.wtoken.cn/20160823/39fc602c2d85bc7e.jpg","http://img8.wtoken.cn/20160823/b67553f0513860b9.jpg","http://img3.wtoken.cn/20160823/f1f22bffc9dab161.jpg","http://img7.wtoken.cn/20160823/45d80de3933fa197.jpg","http://img7.wtoken.cn/20160823/982da1c305fdfe87.jpg",],
+
+  music : parseInt(123),
+  token : 'rnrxik1448871227',
+  tp : 51,
+  
+  title : "",
+  
+   shareimg : "感恩的心，感谢有你",
+  lyric : parseInt(1),
+  cover : parseInt(0),
+  coverTip : parseInt(0),
+  picsRotate: [],
+  texts :[],
+};
+    var canEdit = true;
+
+    // 文本转义
+    (function(){
+        for(var i=0,len=mvCfg.texts.length;i<len;++i) {
+            mvCfg.texts[i] = decodeEscapeHtml(mvCfg.texts[i]);
+        }
+    })();
+
+    function initFunc(){
+        lyricPlayer.init();
+        showTip();
+    }
+
+    function showTip(){
+                $(".share-tip").addClass("tip-in");
+            setTimeout(function() {
+                $(".share-tip").removeClass("tip-in");
+                $(".share-tip").addClass("tip-out");
+            }, 5000);
+            }
+
+            /* android share *******************/
+        function androidGetSharedData(needUpdate) {
+            if(typeof android != "undefined") {
+                if(needUpdate == undefined) {
+                    needUpdate = true;
+                }
+                var funcName = 'getShareImgUrl';
+                if(needUpdate) {
+                    funcName = 'getShareContent';
+                }
+                if(typeof android[funcName] != "undefined") {
+                    android[funcName]('http://m.tuideli.com/Index/Index/play/cid/28306510',
+                            mvCfg['title'],
+                            'http://7xo7y1.com3.z0.glb.qiniucdn.com/mmbiz/OT6WNAYZJXrZ3ztmPg7vY7BOYuHICibODVHjmkKibrOs88126SQ1LCpz13ZTzmRfp42LM3tK03DwmTK5oRsmDnSg/640');
+                }
+            }
+        }
+        androidGetSharedData(false);
+    
+    
+</script><script>    wx_root_url = 'http://www.molixiangce.com/Index/Index/';
+    wx_root_sid = "28306510";
+
+    wxConfig={
+        share_appid:"",
+        share_img_link:"",
+        share_link:"",
+        share_title:"",
+        share_desc:"",
+      
+      
+        callback:function(res){
+            switch(res.err_msg) {
+                case "share_timeline:confirm":
+                case "share_timeline:ok":
+                    shareTimeLineOK();
+                    break;
+                case "send_app_msg:confirm":
+                case "send_app_msg:ok":
+                    sendAppMsgOK();
+                    break;
+                default:
+                    sendAppMsgCancel();
+                    break;
+            }
+        }
+    };
+
+</script><script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><script>     	wx.config({
+		   debug: false,
+      appId: 'wx59d7d94f1ab17a9a',
+      timestamp: '1471959012',
+      nonceStr: 'H2SQuW9QCSTY7JVf',
+      signature:'12d0afc2b61d12d46835975f96a65d38bae541f1',
+		  jsApiList: [
+		    'checkJsApi',
+		    'onMenuShareTimeline',
+		    'onMenuShareAppMessage',
+		    'onMenuShareQQ',
+		     'onMenuShareQZone',
+		    'onMenuShareWeibo',
+			'openLocation',
+			'showAllNonBaseMenuItem',
+			'closeWindow',
+			'showMenuItemsshowMenuItems',
+			'hideMenuItems',
+			'showAllNonBaseMenuItem',
+			'getLocation'
+		  ]
+		});var host = window.location.host;
+var links='http://'+host+'/index.php?g=Wap&m=Music&a=show&token=rnrxik1448871227&bookname=oWKJOuKq-GriutL1UvEkrti7Xo4A9957042814558364wqlcms1471957420';
+
+  wx.ready(function () {
+    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+    /*document.querySelector('#checkJsApi').onclick = function () {
+      wx.checkJsApi({
+        jsApiList: [
+          'getNetworkType',
+          'previewImage'
+        ],
+        success: function (res) {
+          //alert(JSON.stringify(res));
+        }
+      });
+    };*/
+    // 2. 分享接口
+  // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+wx.onMenuShareAppMessage({
+      title: '感恩的心，感谢有你',
+      desc: '音乐相册,打开看看~',
+      link: links,
+      imgUrl: 'http://img2.wtoken.cn/20160823/599d6dc9002f95c8.jpg',
+        type: '', // 分享类型,music、video或link，不填默认为link
+        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        success: function () { 
+         window.location.href='http://mp.weixin.qq.com/s?__biz=MzA5MjE2MTExMg==&mid=400043241&idx=1&sn=008775c69f3a7545fc55c0685b302bb2&scene=1&srcid=1030TtpsOZUIu3PopDy18GFV&uin=MjI2NDA1NDAwNQ%3D%3D&key=04dce534b3b035efcf96936662b9255964be61adc1d3b6e8121c18c4b4e47a414acee8e1a7cf0df724' 
+            //alert('分享朋友成功');
+        },
+        cancel: function () { 
+            //alert('分享朋友失败');
+        }
+    });
+// 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+    wx.onMenuShareTimeline({
+      title: '感恩的心，感谢有你',
+     
+      link: links,
+      imgUrl: 'http://img2.wtoken.cn/20160823/599d6dc9002f95c8.jpg',
+        success: function () { 
+        window.location.href='http://mp.weixin.qq.com/s?__biz=MzA5MjE2MTExMg==&mid=400043241&idx=1&sn=008775c69f3a7545fc55c0685b302bb2&scene=1&srcid=1030TtpsOZUIu3PopDy18GFV&uin=MjI2NDA1NDAwNQ%3D%3D&key=04dce534b3b035efcf96936662b9255964be61adc1d3b6e8121c18c4b4e47a414acee8e1a7cf0df724' 
+            //alert('分享朋友圈成功');
+        },
+        cancel: function () { 
+            //alert('分享朋友圈失败');
+        }
+    }); 
+// 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+   
+  });
+
+ </script><script id='wxJs'></script><script>    /*
+     wx.config({
+     debug: false,
+     appId: 'wx68d77a0394dbfff0',
+     timestamp: 1450580338,
+     nonceStr: 'wBFvXBYm1UhjbJA7',
+     signature: '9701bc27ea50635084f005eaf8bf80ebaf432f3f',
+     jsApiList: [
+     'checkJsApi',
+     'onMenuShareTimeline',
+     'onMenuShareAppMessage',
+     'onMenuShareQQ',
+     'onMenuShareWeibo',
+     ]
+     });
+     */
+     var host = "weixin.youdianmeng.cn";
+
+    wx.ready(function () {
+      setsharedata('感恩的心，感谢有你','http://'+host+'/index.php?g=Wap&m=Music&a=show&token=rnrxik1448871227&bookname=oWKJOuKq-GriutL1UvEkrti7Xo4A9957042814558364wqlcms1471957420&time=','http://img2.wtoken.cn/20160823/599d6dc9002f95c8.jpg');
+
+        music_check_timeout = undefined;
+        function check_Music(){
+            // 阻塞执行 500 ms 执行一次
+            if(musicView != undefined && musicView.audioPlayer != undefined && musicView.audioPlayer.inited == true){
+                if(music_check_timeout != undefined){
+                    clearTimeout(music_check_timeout);
+                }
+                musicView.audioPlayer.isPlay = false;
+                musicView.audioPlayer._play();
+            }else{
+                music_check_timeout = setTimeout(check_Music, 500);
+            }
+        }
+        check_Music();
+    });
+</script><script src="http://css.wtoken.com/lqc/newmusic/style/md5.min.js?v=12101011"></script><script src="http://css.wtoken.com/lqc/newmusic/style/base64.min.js?v=12101011"></script><script src="http://css.wtoken.com/lqc/newmusic/style/upyun.js?v=12101011"></script><script src="http://css.wtoken.com/lqc/newmusic/style/custom.js?v=12101011"></script><script egret="lib" src="http://css.wtoken.com/lqc/newmusic/style/egret/egret.min.js?v=12101011"></script><script egret="lib" src="http://css.wtoken.com/lqc/newmusic/style/egret/egret.web.min.js?v=12101011"></script><script egret="lib" src="http://css.wtoken.com/lqc/newmusic/style/egret/game.min.js?v=12101011"></script><script egret="lib" src="http://css.wtoken.com/lqc/newmusic/style/egret/game.web.min.js?v=12101011"></script><script egret="lib" src="http://css.wtoken.com/lqc/newmusic/style/egret/tween.min.js?v=12101011"></script><script egret="lib" src="http://css.wtoken.com/lqc/newmusic/style/egret/res.min.js?v=12101011"></script><script egret="lib" src="http://css.wtoken.com/lqc/newmusic/style/egret/particle.min.js?v=12101011"></script><script src="http://css.wtoken.com/lqc/newmusic/js/51/main.min.js?v=12101011"></script><script> egret.runEgret(); </script></body><img src="http://c.cnzz.com/wapstat.php?siteid=1256576718&r=&rnd=921780288" width="0" height="0"/></html>
